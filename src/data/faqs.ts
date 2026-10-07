@@ -65,23 +65,23 @@ export const FAQS: FAQItem[] = [
   {
     id: 'faq-9',
     category: 'planos_pagamento',
-    question: 'Qual a diferença prática entre os planos de 6 e 12 meses?',
+    question: 'Qual a diferença prática entre os planos Mensal, Trimestral, Semestral e Anual?',
     answer:
-      'No plano de 6 meses (investimento de até 18x de R$ 376,67 no cartão ou 6x de R$ 1.130,00 no boleto após entrada de R$ 500), o foco é na implantação essencial e alinhamento dos canais. No plano de 12 meses (investimento de até 24x de R$ 429,17 no cartão ou 12x de R$ 858,33 no boleto — Recomendado), a empresa conta com o dobro do tempo para maturação do SEO Local, refinamentos contínuos de conversão e acompanhamento no LumiereOS, além de obter uma economia real de R$ 2.660,00 frente aos serviços avulsos (que somam R$ 1.213,33/mês).',
+      'O preço-base de referência da Pedra Angular é de R$ 1.500,00 por mês. Quanto maior o compromisso, maior o desconto: o Plano Mensal oferece máxima flexibilidade sem desconto (R$ 1.500); o Trimestral oferece 15% de economia (de R$ 4.500 por R$ 3.825, economizando R$ 675); o Semestral oferece 20% de economia (de R$ 9.000 por R$ 7.200, economizando R$ 1.800 — Mais Escolhido); e o Anual oferece 25% de economia (de R$ 18.000 por R$ 13.500, economizando R$ 4.500 — Melhor Custo-Benefício). Em todos eles, a entrada de R$ 500 abate o valor total.',
   },
   {
     id: 'faq-10',
     category: 'planos_pagamento',
-    question: 'Como funciona o investimento e a entrada de R$ 500,00?',
+    question: 'Como funciona a entrada de R$ 500,00?',
     answer:
-      'A entrada de R$ 500,00 é formalizada no início para cobrir a abertura imediata dos projetos e auditorias iniciais. Esse valor é integralmente deduzido do investimento total do plano. O saldo restante é parcelado em até 18x (plano 6 meses) ou até 24x (plano 12 meses) no cartão de crédito, ou no boleto bancário direto sem juros (6x de R$ 1.130,00 ou 12x de R$ 858,33).',
+      'A entrada de R$ 500,00 é formalizada no início para cobrir a abertura dos projetos e auditorias iniciais. Ela NÃO é um custo adicional: esse valor é integralmente abatido do valor total contratado. Após a entrada, você quita apenas o saldo restante conforme as condições de parcelamento no cartão.',
   },
   {
     id: 'faq-11',
     category: 'planos_pagamento',
-    question: 'Posso realizar o investimento parcelado no cartão ou boleto?',
+    question: 'Como funciona o parcelamento no cartão de crédito?',
     answer:
-      'Sim. No cartão de crédito, o plano de 6 meses pode ser parcelado em até 18x de R$ 376,67 (+ taxas), e o plano de 12 meses em até 24x de R$ 429,17 (+ taxas). No boleto bancário, o saldo é quitado em 6 parcelas de aproximadamente R$ 1.130,00 (no de 6 meses) ou 12 parcelas de R$ 858,33 (no de 12 meses).',
+      'O saldo restante (após abater a entrada de R$ 500) é parcelado no cartão: o Mensal em 4x de R$ 250,00; o Trimestral em 9x de aproximadamente R$ 369,44; o Semestral em 18x de aproximadamente R$ 372,22; e o Anual em 18x de aproximadamente R$ 722,22. O sistema faz pequenos ajustes de centavos na última parcela para fechar com exatidão o saldo contratado.',
   },
   {
     id: 'faq-12',

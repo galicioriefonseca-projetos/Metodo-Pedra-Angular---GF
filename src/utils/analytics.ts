@@ -12,8 +12,11 @@ export type AnalyticsEvent =
   | 'cta_pricing'
   | 'cta_final'
   | 'whatsapp_click'
-  | 'pricing_6_months'
-  | 'pricing_12_months'
+  | 'plan_selected'
+  | 'pricing_monthly'
+  | 'pricing_quarterly'
+  | 'pricing_semester'
+  | 'pricing_annual'
   | 'faq_open';
 
 declare global {

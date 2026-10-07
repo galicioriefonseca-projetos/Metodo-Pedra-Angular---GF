@@ -5,6 +5,10 @@ export type WhatsAppContext =
   | 'hero'
   | 'diagnostic_result'
   | 'methodology'
+  | 'pricing_monthly'
+  | 'pricing_quarterly'
+  | 'pricing_semester'
+  | 'pricing_annual'
   | 'pricing_6_months'
   | 'pricing_12_months'
   | 'final_cta';
@@ -40,12 +44,22 @@ export function generateWhatsAppLink(
       message = 'Olá! Gostaria de entender detalhadamente como funciona a implantação dos 5 pilares da Pedra Angular e do LumiereOS na minha empresa.';
       break;
 
-    case 'pricing_6_months':
-      message = 'Olá! Analisei a proposta do Plano de 6 Meses da Pedra Angular (investimento em até 18x de R$ 376,67 no cartão ou 6x no boleto) e gostaria de tirar algumas dúvidas sobre o início da implantação.';
+    case 'pricing_monthly':
+      message = 'Olá! Analisei a proposta do Plano Mensal da Pedra Angular (R$ 1.500/mês com entrada de R$ 500 + 4x de R$ 250 no cartão) e gostaria de tirar algumas dúvidas para começar.';
       break;
 
+    case 'pricing_quarterly':
+      message = 'Olá! Analisei a proposta do Plano Trimestral da Pedra Angular (15% OFF — R$ 3.825 com entrada de R$ 500 + 9x de R$ 369,44 no cartão) e gostaria de conversar sobre o início da implantação.';
+      break;
+
+    case 'pricing_semester':
+    case 'pricing_6_months':
+      message = 'Olá! Analisei a proposta do Plano Semestral da Pedra Angular (20% OFF — R$ 7.200 com entrada de R$ 500 + 18x de R$ 372,22 no cartão) e gostaria de entender os próximos passos.';
+      break;
+
+    case 'pricing_annual':
     case 'pricing_12_months':
-      message = 'Olá! Analisei o Plano Recomendado de 12 Meses da Pedra Angular (investimento em até 24x de R$ 429,17 no cartão ou 12x no boleto) e gostaria de agendar uma conversa para estruturar a base da minha empresa com a metodologia completa.';
+      message = 'Olá! Analisei o Plano Anual da Pedra Angular com 25% de economia (R$ 13.500 com entrada de R$ 500 + 18x de R$ 722,22 no cartão) e gostaria de agendar uma conversa para estruturar a base da minha empresa com a metodologia completa.';
       break;
 
     case 'final_cta':

@@ -2,6 +2,7 @@ import React from 'react';
 import { DiagnosticResultData, PillarKey, PillarStatus } from '../../types/diagnostic';
 import { generateWhatsAppLink } from '../../utils/whatsapp';
 import { trackEvent } from '../../utils/analytics';
+import { openExternalLink } from '../../utils/navigation';
 import {
   CheckCircle2,
   AlertCircle,
@@ -32,7 +33,7 @@ export const DiagnosticResultView: React.FC<DiagnosticResultViewProps> = ({
       leadCompany: result.lead.company,
       primaryOpportunity: result.primaryOpportunity,
     });
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    openExternalLink(whatsappUrl);
   };
 
   const handleExploreClick = () => {

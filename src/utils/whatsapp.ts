@@ -59,7 +59,7 @@ export function generateWhatsAppLink(
 
     case 'pricing_annual':
     case 'pricing_12_months':
-      message = 'Olá! Analisei o Plano Anual da Pedra Angular com 25% de economia (R$ 13.500 com entrada de R$ 500 + 18x de R$ 722,22 no cartão) e gostaria de agendar uma conversa para estruturar a base da minha empresa com a metodologia completa.';
+      message = 'Olá! Analisei o Plano Anual da Pedra Angular com 25% de economia (R$ 13.500 com entrada de R$ 500 + 24x de R$ 541,67 no cartão) e gostaria de agendar uma conversa para estruturar a base da minha empresa com a metodologia completa.';
       break;
 
     case 'final_cta':

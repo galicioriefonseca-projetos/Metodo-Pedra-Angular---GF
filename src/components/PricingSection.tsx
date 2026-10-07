@@ -2,6 +2,7 @@ import React from 'react';
 import { SITE_CONFIG } from '../config/siteConfig';
 import { generateWhatsAppLink, WhatsAppContext } from '../utils/whatsapp';
 import { trackEvent } from '../utils/analytics';
+import { openExternalLink } from '../utils/navigation';
 import { Check, ArrowRight, ShieldCheck, Sparkles, TrendingDown } from 'lucide-react';
 
 export const PricingSection: React.FC = () => {
@@ -26,7 +27,7 @@ export const PricingSection: React.FC = () => {
     };
 
     const url = generateWhatsAppLink(contextMap[plan.id] || 'pricing_annual');
-    window.open(url, '_blank', 'noopener,noreferrer');
+    openExternalLink(url);
   };
 
   return (
@@ -116,14 +117,7 @@ export const PricingSection: React.FC = () => {
                     {plan.positioning}
                   </p>
 
-                  {/* BLOCO FINANCEIRO — ORDEM VISUAL RIGOROSA:
-                      1. Valor real sem desconto
-                      2. Percentual de economia
-                      3. Valor final contratado
-                      4. Valor economizado em reais
-                      5. Entrada
-                      6. Parcelamento
-                  */}
+                  {/* BLOCO FINANCEIRO — VALOR PARCELADO EM DESTAQUE COM ANCORAGEM COMPLETA */}
                   <div className={`p-4 rounded-xl border mb-5 ${
                     isAnnual 
                       ? 'bg-cyan-950/40 border-cyan-400/40 shadow-inner' 
@@ -132,75 +126,82 @@ export const PricingSection: React.FC = () => {
                       : 'bg-white/[0.02] border-white/5'
                   }`}>
                     
-                    {/* 1. Valor real sem desconto */}
-                    <div className="flex items-baseline justify-between mb-0.5">
-                      <span className="text-[11px] text-slate-400">Valor de referência:</span>
-                      <span className={`text-xs font-mono ${plan.discountPercent > 0 ? 'line-through text-slate-400' : 'text-slate-200'}`}>
-                        R$ {plan.basePrice.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
-                      </span>
-                    </div>
-
-                    {/* 2 & 3. Percentual de economia e Valor final contratado */}
-                    <div className="flex items-baseline justify-between pt-1 mb-1">
-                      <div>
-                        {plan.discountPercent > 0 ? (
-                          <span className="inline-block px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold uppercase tracking-wider">
-                            {plan.discountPercent}% OFF
-                          </span>
-                        ) : (
-                          <span className="text-[10px] text-slate-400 uppercase tracking-wider">
-                            Sem desconto
-                          </span>
-                        )}
+                    {/* DESTAQUE PRINCIPAL: VALOR PARCELADO */}
+                    <div className="mb-4 pb-3 border-b border-white/10">
+                      <div className="text-[10px] uppercase font-bold tracking-wider text-cyan-400 mb-1 flex items-center justify-between">
+                        <span>Investimento no Cartão</span>
+                        <span className="text-[10px] text-slate-400 font-normal">Entrada R$ 500 +</span>
                       </div>
-                      <div className="text-2xl font-extrabold font-mono text-white tracking-tight">
-                        R$ {plan.contractedPrice.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
-                      </div>
-                    </div>
-
-                    {/* 4. Valor economizado em reais */}
-                    {plan.savedAmount > 0 ? (
-                      <div className="flex items-center justify-between text-xs text-emerald-300 font-semibold mb-3 pb-2 border-b border-white/5">
-                        <span className="flex items-center gap-1">
-                          <TrendingDown className="w-3.5 h-3.5" />
-                          Você economiza:
+                      <div className="flex items-baseline flex-wrap gap-1.5">
+                        <span className="text-2xl sm:text-3xl font-extrabold font-mono text-white tracking-tight">
+                          {plan.installmentsCount}x
                         </span>
-                        <span className="font-mono">
-                          R$ {plan.savedAmount.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
+                        <span className="text-xs text-slate-300 font-medium">de aprox.</span>
+                        <span className="text-xl sm:text-2xl font-extrabold font-mono text-cyan-300">
+                          R$ {plan.installmentValue.toFixed(2).replace('.', ',')}
                         </span>
-                      </div>
-                    ) : (
-                      <div className="text-[11px] text-slate-400 mb-3 pb-2 border-b border-white/5 text-right">
-                        Valor integral do mês
-                      </div>
-                    )}
-
-                    {/* 5. Entrada (ABATE do valor contratado) */}
-                    <div className="flex justify-between items-center text-xs text-slate-300 mb-1">
-                      <span>Entrada (abate o total):</span>
-                      <span className="font-semibold text-white font-mono">
-                        R$ {plan.entryFee.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
-                      </span>
-                    </div>
-
-                    {/* Saldo após entrada */}
-                    <div className="flex justify-between items-center text-[11px] text-slate-400 mb-3 pb-2 border-b border-white/5">
-                      <span>Saldo a parcelar:</span>
-                      <span className="font-mono text-slate-200">
-                        R$ {plan.balance.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
-                      </span>
-                    </div>
-
-                    {/* 6. Parcelamento do saldo */}
-                    <div className="pt-0.5">
-                      <div className="text-[10px] uppercase font-bold tracking-wider text-cyan-400 mb-0.5">
-                        Condição no Cartão:
-                      </div>
-                      <div className="text-base font-bold font-mono text-white leading-tight">
-                        {plan.installmentsCount}x de aproximadamente R$ {plan.installmentValue.toFixed(2).replace('.', ',')}
                       </div>
                       <div className="text-[10px] text-slate-400 mt-1">
                         {plan.installmentsDetail}
+                      </div>
+                    </div>
+
+                    {/* ANCORAGEM: VALOR DE REFERÊNCIA SEM DESCONTO VS INVESTIMENTO CONTRATADO */}
+                    <div className="space-y-1.5 text-xs">
+                      {/* 1. Valor real de referência sem desconto */}
+                      <div className="flex items-baseline justify-between">
+                        <span className="text-[11px] text-slate-400">Referência sem desconto:</span>
+                        <span className={`text-xs font-mono ${plan.discountPercent > 0 ? 'line-through text-slate-400' : 'text-slate-300'}`}>
+                          R$ {plan.basePrice.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
+                        </span>
+                      </div>
+
+                      {/* 2 & 3. Percentual de economia e Valor total contratado */}
+                      <div className="flex items-baseline justify-between pt-0.5">
+                        <div className="flex items-center gap-1">
+                          <span className="text-[11px] text-slate-300 font-medium">Investimento total:</span>
+                          {plan.discountPercent > 0 ? (
+                            <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold uppercase tracking-wider">
+                              {plan.discountPercent}% OFF
+                            </span>
+                          ) : (
+                            <span className="text-[10px] text-slate-400 uppercase tracking-wider">
+                              Base
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-base font-bold font-mono text-white tracking-tight">
+                          R$ {plan.contractedPrice.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
+                        </div>
+                      </div>
+
+                      {/* 4. Valor economizado em reais */}
+                      {plan.savedAmount > 0 && (
+                        <div className="flex items-center justify-between text-[11px] text-emerald-300 font-semibold pt-0.5">
+                          <span className="flex items-center gap-1">
+                            <TrendingDown className="w-3.5 h-3.5" />
+                            Você economiza:
+                          </span>
+                          <span className="font-mono">
+                            R$ {plan.savedAmount.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* 5. Entrada que abate o total */}
+                      <div className="flex justify-between items-center text-[11px] text-slate-400 pt-1.5 border-t border-white/5">
+                        <span>Entrada (abate o total):</span>
+                        <span className="font-semibold text-white font-mono">
+                          R$ {plan.entryFee.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
+                        </span>
+                      </div>
+
+                      {/* Saldo após entrada */}
+                      <div className="flex justify-between items-center text-[10px] text-slate-400">
+                        <span>Saldo parcelado:</span>
+                        <span className="font-mono text-slate-200">
+                          R$ {plan.balance.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}
+                        </span>
                       </div>
                     </div>
                   </div>

@@ -145,7 +145,7 @@ export const PricingAnchorSection: React.FC = () => {
               </p>
             </div>
             <div className="shrink-0 text-xs text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 px-3.5 py-2 rounded-lg">
-              Parcelamento do saldo em até 18x no cartão
+              Parcelamento do saldo em até 24x no cartão
             </div>
           </div>
 

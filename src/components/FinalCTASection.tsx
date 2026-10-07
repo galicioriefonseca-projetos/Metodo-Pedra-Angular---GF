@@ -1,6 +1,7 @@
 import React from 'react';
 import { generateWhatsAppLink } from '../utils/whatsapp';
 import { trackEvent } from '../utils/analytics';
+import { openExternalLink } from '../utils/navigation';
 import { ArrowUpRight, MessageSquare, ArrowDown } from 'lucide-react';
 
 interface FinalCTASectionProps {
@@ -12,7 +13,7 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onStartDiagnos
 
   const handleWhatsAppClick = () => {
     trackEvent('cta_final', { action: 'whatsapp_conversation' });
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    openExternalLink(whatsappUrl);
   };
 
   const handleDiagnosticClick = () => {

@@ -83,79 +83,79 @@ export const Hero: React.FC<HeroProps> = ({ onStartDiagnostic, onExploreMethod }
           </div>
 
           {/* Coluna Direita: Representação Arquitetônica da Estrutura (5 cols) */}
-          <div className="lg:col-span-5 flex items-center justify-center">
-            <div className="relative w-full max-w-[440px] aspect-square rounded-2xl border border-white/10 bg-[#0E1422]/80 backdrop-blur-sm p-6 sm:p-8 flex flex-col justify-between shadow-2xl shadow-black/40">
+          <div className="lg:col-span-5 flex items-center justify-center w-full">
+            <div className="relative w-full max-w-[440px] aspect-square rounded-2xl border border-white/10 bg-[#0E1422]/80 backdrop-blur-sm p-4 sm:p-7 flex flex-col justify-between shadow-2xl shadow-black/40 overflow-hidden">
               
               {/* Background Geometric Grid Accent */}
               <div className="absolute inset-0 bg-dot-pattern opacity-30 rounded-2xl pointer-events-none" />
 
               {/* Header da Estrutura */}
-              <div className="relative flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="relative flex items-center justify-between border-b border-white/10 pb-3">
                 <div className="flex items-center gap-2">
                   <Network className="w-4 h-4 text-cyan-400" />
                   <span className="text-xs font-semibold uppercase tracking-wider text-slate-300">
                     Arquitetura Integrada
                   </span>
                 </div>
-                <span className="text-[11px] text-slate-500">5 Dimensões Conectadas</span>
+                <span className="text-[11px] text-slate-500">5 Dimensões</span>
               </div>
 
               {/* Diagrama Conector Central */}
-              <div className="relative my-auto py-4 flex items-center justify-center">
+              <div className="relative my-auto py-2 sm:py-4 flex items-center justify-center">
                 {/* Linhas Conectoras Radiais */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-64 h-64 border border-dashed border-cyan-500/20 rounded-full" />
-                  <div className="w-40 h-40 border border-white/10 rounded-full" />
+                  <div className="w-48 h-48 sm:w-64 sm:h-64 border border-dashed border-cyan-500/20 rounded-full" />
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 border border-white/10 rounded-full" />
                 </div>
 
                 {/* Nó Central: A PEDRA ANGULAR (Fundação) */}
-                <div className="relative z-10 text-center p-5 rounded-xl border border-cyan-400/50 bg-[#0B111E] shadow-xl shadow-cyan-950/50 max-w-[190px]">
-                  <div className="w-8 h-8 mx-auto mb-2 rounded bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center">
-                    <div className="w-3.5 h-3.5 bg-cyan-400 rotate-45 transform" />
+                <div className="relative z-10 text-center p-3 sm:p-5 rounded-xl border border-cyan-400/50 bg-[#0B111E] shadow-xl shadow-cyan-950/50 max-w-[150px] sm:max-w-[190px]">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-1.5 sm:mb-2 rounded bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center">
+                    <div className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 bg-cyan-400 rotate-45 transform" />
                   </div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-white">
+                  <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white">
                     Pedra Angular
                   </div>
-                  <div className="text-[10px] text-cyan-300/80 mt-0.5 font-medium">
+                  <div className="text-[9px] sm:text-[10px] text-cyan-300/80 mt-0.5 font-medium">
                     Fundação & Estrutura
                   </div>
                 </div>
 
                 {/* Nós Periféricos Conectados */}
                 {/* 1. Google (Norte) */}
-                <div className="absolute -top-1 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded bg-[#131B2E] border border-white/10 text-[11px] font-medium text-slate-200 shadow-sm flex items-center gap-1.5">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-[#131B2E] border border-white/10 text-[10px] sm:text-[11px] font-medium text-slate-200 shadow-sm flex items-center gap-1.5 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
                   <span>Google & Maps</span>
                 </div>
 
                 {/* 2. Site (Leste) */}
-                <div className="absolute top-1/2 -right-2 -translate-y-1/2 px-2.5 py-1 rounded bg-[#131B2E] border border-white/10 text-[11px] font-medium text-slate-200 shadow-sm flex items-center gap-1.5">
+                <div className="absolute top-1/2 right-0 sm:-right-1 -translate-y-1/2 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-[#131B2E] border border-white/10 text-[10px] sm:text-[11px] font-medium text-slate-200 shadow-sm flex items-center gap-1.5 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
                   <span>Site & Decisão</span>
                 </div>
 
                 {/* 3. WhatsApp (Sul-Leste) */}
-                <div className="absolute -bottom-1 right-8 px-2.5 py-1 rounded bg-[#131B2E] border border-white/10 text-[11px] font-medium text-slate-200 shadow-sm flex items-center gap-1.5">
+                <div className="absolute bottom-0 right-2 sm:right-6 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-[#131B2E] border border-white/10 text-[10px] sm:text-[11px] font-medium text-slate-200 shadow-sm flex items-center gap-1.5 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   <span>WhatsApp Business</span>
                 </div>
 
                 {/* 4. Instagram (Sul-Oeste) */}
-                <div className="absolute -bottom-1 left-8 px-2.5 py-1 rounded bg-[#131B2E] border border-white/10 text-[11px] font-medium text-slate-200 shadow-sm flex items-center gap-1.5">
+                <div className="absolute bottom-0 left-2 sm:left-6 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-[#131B2E] border border-white/10 text-[10px] sm:text-[11px] font-medium text-slate-200 shadow-sm flex items-center gap-1.5 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-pink-400" />
                   <span>Instagram</span>
                 </div>
 
                 {/* 5. LumiereOS (Oeste) */}
-                <div className="absolute top-1/2 -left-2 -translate-y-1/2 px-2.5 py-1 rounded bg-[#131B2E] border border-white/10 text-[11px] font-medium text-slate-200 shadow-sm flex items-center gap-1.5">
+                <div className="absolute top-1/2 left-0 sm:-left-1 -translate-y-1/2 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-[#131B2E] border border-white/10 text-[10px] sm:text-[11px] font-medium text-slate-200 shadow-sm flex items-center gap-1.5 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                   <span>LumiereOS</span>
                 </div>
               </div>
 
               {/* Mensagem de Síntese no Rodapé do Mockup */}
-              <div className="relative border-t border-white/10 pt-3 text-center">
-                <p className="text-[11px] text-slate-400 italic">
+              <div className="relative border-t border-white/10 pt-2.5 text-center">
+                <p className="text-[10px] sm:text-[11px] text-slate-400 italic">
                   «Não construímos canais isolados. Construímos uma estrutura.»
                 </p>
               </div>
